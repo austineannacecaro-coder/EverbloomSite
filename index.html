@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101917" />
+    <title>Everbloom — Explore</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <div id="atmosphere-filter" aria-hidden="true"></div>
+
+    <!-- WRONG PIN FLASH -->
+    <div id="wrong-pin-flash"></div>
+    <audio id="site-audio" src="/everbloom-theme.mp3" loop preload="auto"></audio>
+
+    <!-- ACCESS GRANTED ENDING -->
+    <div id="access-granted-flash" aria-hidden="true"></div>
+    <div id="pixel-transition" aria-hidden="true"></div>
+
+    <section id="ending-screen" aria-live="polite" aria-label="Everbloom ending">
+      <div class="ending-content">
+        <p id="ending-message"><span id="ending-text"></span><span class="ending-cursor" aria-hidden="true">_</span></p>
+        <div class="unlock-panel" id="unlockPanel" hidden>
+          <h2>UNLOCK THE SECRET</h2>
+          <p>Enter your email.</p>
+          <form id="emailForm">
+            <input
+              type="email"
+              id="emailInput"
+              name="email"
+              placeholder="Enter your email"
+              autocomplete="email"
+              inputmode="email"
+              maxlength="254"
+              required
+            >
+            <button type="submit">UNLOCK</button>
+            <button type="button" id="skipEmailButton" class="test-bypass-button">
+              TEST: SKIP EMAIL
+            </button>
+          </form>
+        </div>
+        <div id="ending-video" hidden>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <div id="intro-screen">
+
+      <img
+        id="intro-gif"
+        src="/animation_2.gif"
+        alt="Everbloom"
+      >
+
+      <button id="enter-button">Enter?</button>
+
+    </div>
+
+    <!-- KEYPAD -->
+    <div id="keypad-screen">
+
+      <div id="keypad-panel">
+
+        <h2>ENTER CODE</h2>
+
+        <div id="keypad-display"></div>
+
+        <div id="keypad-buttons">
+
+          <button data-key="1">1</button>
+          <button data-key="2">2</button>
+          <button data-key="3">3</button>
+
+          <button data-key="4">4</button>
+          <button data-key="5">5</button>
+          <button data-key="6">6</button>
+
+          <button data-key="7">7</button>
+          <button data-key="8">8</button>
+          <button data-key="9">9</button>
+
+          <button data-key="backspace">←</button>
+          <button data-key="0">0</button>
+          <button data-key="enter">#</button>
+
+        </div>
+
+        <div id="keypad-message"></div>
+
+        <button id="keypad-back">BACK</button>
+
+      </div>
+
+    </div>
+
+    <!-- PHOTO DISPLAYS -->
+    <div id="photo-number"></div>
+    <div id="photo-phrase"></div>
+
+    <!-- 3D WORLD -->
+    <main
+      id="experience"
+      aria-label="Everbloom 3D exploration"
+    >
+
+      <div id="hud">
+
+        <div class="brand">
+          EVERBLOOM
+        </div>
+
+        <div class="crosshair"></div>
+
+      </div>
+
+      <!-- MOBILE CONTROLS -->
+      <div id="mobile-controls">
+
+        <div id="joystick">
+          <div id="joystick-knob"></div>
+        </div>
+
+        <div id="look-area"></div>
+
+      </div>
+
+    </main>
+
+    <script
+      type="module"
+      src="./script.js"
+    ></script>
+
+  </body>
+</html>

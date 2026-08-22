@@ -115,7 +115,7 @@ raycaster.setFromCamera(mouse, camera);
 
   if (hits.length === 0) {
     console.log('NOTHING CLICKED');
-    controls.lock();
+    lockDesktopControls();
     return;
   }
 
@@ -135,7 +135,7 @@ raycaster.setFromCamera(mouse, camera);
 
     keypadScreen.style.display = 'flex';
 
-    controls.unlock();
+    unlockPointerControls();
 
     return;
   }
@@ -228,6 +228,20 @@ const controls = new PointerLockControls(
   camera,
   renderer.domElement
 );
+const isTouchDevice =
+  'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+function lockDesktopControls() {
+  if (!isTouchDevice) {
+    controls.lock();
+  }
+}
+
+function unlockPointerControls() {
+  if (controls.isLocked) {
+    controls.unlock();
+  }
+}
 
 const keys = new Set();
 const collisionObjects = [];
@@ -561,9 +575,7 @@ enterButton.addEventListener('click', (event) => {
     console.warn('Unable to start site audio:', error);
   });
 
-  if (!('ontouchstart' in window)) {
-  controls.lock();
-}
+  lockDesktopControls();
 
 });
 
@@ -862,7 +874,7 @@ function beginEndingSequence() {
 
   setTimeout(() => {
     keypadScreen.style.display = 'none';
-    controls.unlock();
+    unlockPointerControls();
 
     const fragment = document.createDocumentFragment();
     for (let index = 0; index < 384; index++) {
@@ -984,7 +996,7 @@ keypadBack.addEventListener('click', () => {
 
   keypadMessage.textContent = '';
 
-  controls.lock();
+  lockDesktopControls();
 
 });
 

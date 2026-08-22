@@ -488,6 +488,8 @@ const introScreen =
 
 const enterButton =
   document.getElementById('enter-button');
+const loadingScreen =
+  document.getElementById('loading-screen');
 const siteAudio =
   document.getElementById('site-audio');
 const footstepSounds = [
@@ -533,6 +535,13 @@ footstepSounds.forEach((sound) => {
 
 let footstepIndex = 0;
 let footstepTimer = 0;
+let worldLoaded = false;
+let loadingRequested = false;
+
+function hideLoadingScreen() {
+  loadingScreen.classList.remove('visible');
+  loadingRequested = false;
+}
 
 enterButton.addEventListener('click', (event) => {
 
@@ -540,6 +549,12 @@ enterButton.addEventListener('click', (event) => {
 
   introScreen.style.display = 'none';
   introScreen.style.pointerEvents = 'none';
+  loadingScreen.classList.add('visible');
+  loadingRequested = true;
+
+  if (worldLoaded) {
+    setTimeout(hideLoadingScreen, 350);
+  }
 
   // Starting from this user interaction satisfies browser autoplay rules.
   siteAudio.play().catch((error) => {
@@ -1161,6 +1176,11 @@ loader.load(
   (gltf) => {
 
     enterWorld(gltf.scene);
+    worldLoaded = true;
+
+    if (loadingRequested) {
+      setTimeout(hideLoadingScreen, 350);
+    }
 
   },
 

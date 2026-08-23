@@ -38,9 +38,6 @@
               required
             >
             <button type="submit">UNLOCK</button>
-            <button type="button" id="skipEmailButton" class="test-bypass-button">
-              TEST: SKIP EMAIL
-            </button>
           </form>
         </div>
         <div id="ending-video" hidden>
@@ -62,7 +59,10 @@
     </div>
 
     <div id="loading-screen" aria-live="polite" aria-label="Loading">
-      <span>LOADING</span>
+      <div class="loading-content">
+        <span>LOADING</span>
+        <p class="loading-movement-hint">USE WASD TO MOVE</p>
+      </div>
     </div>
 
     <!-- KEYPAD -->
@@ -114,9 +114,7 @@
 
       <div id="hud">
 
-        <div class="brand">
-          EVERBLOOM
-        </div>
+        <img class="brand-mark" src="/animation_2.gif" alt="Everbloom">
 
         <div class="crosshair"></div>
 

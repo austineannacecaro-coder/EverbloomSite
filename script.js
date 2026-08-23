@@ -756,8 +756,6 @@ const emailForm =
   document.getElementById('emailForm');
 const emailInput =
   document.getElementById('emailInput');
-const skipEmailButton =
-  document.getElementById('skipEmailButton');
 
 let endingStarted = false;
 
@@ -855,8 +853,6 @@ emailForm.addEventListener('submit', (event) => {
       alert('Failed to send. Please try again.');
     });
 });
-
-skipEmailButton.addEventListener('click', showUnlockedVideo);
 
 function beginEndingSequence() {
   if (endingStarted) {

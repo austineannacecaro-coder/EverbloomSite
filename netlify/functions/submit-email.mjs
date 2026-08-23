@@ -70,7 +70,20 @@ export default async (request) => {
     ]);
 
     if (!webhookResponse.ok || !emailResponse.ok) {
-      throw new Error('Email provider request failed.');
+      const failures = [];
+
+      if (!webhookResponse.ok) {
+        failures.push(`Make webhook returned ${webhookResponse.status}`);
+      }
+
+      if (!emailResponse.ok) {
+        const emailJsMessage = await emailResponse.text();
+        failures.push(
+          `EmailJS returned ${emailResponse.status}: ${emailJsMessage}`
+        );
+      }
+
+      throw new Error(failures.join('; '));
     }
   } catch (error) {
     console.error('Unable to submit email:', error);

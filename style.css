@@ -361,6 +361,29 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
   letter-spacing: .12em;
 }
 
+.keyboard-keys {
+  display: inline-flex;
+  gap: .35em;
+  margin: 0 .35em;
+  vertical-align: middle;
+}
+
+.keyboard-keys kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.8em;
+  height: 1.8em;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(201, 213, 146, .8);
+  border-bottom-width: 3px;
+  border-radius: 2px;
+  background: rgba(201, 213, 146, .08);
+  color: #e1e8b7;
+  font: inherit;
+  letter-spacing: 0;
+}
+
 #loading-screen.visible {
   display: grid;
 }

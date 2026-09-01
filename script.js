@@ -765,7 +765,7 @@ const getVideoEmbed = () => {
       ? `&origin=${encodeURIComponent(window.location.origin)}`
       : '';
 
-  return `<iframe width="560" height="315" src="https://www.youtube.com/embed/UH79ndc72wg?si=-YRHa6XEPAsJf1kh${origin}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="origin" allowfullscreen></iframe>`;
+  return `<iframe width="560" height="315" src="https://www.youtube.com/embed/jeVnVVG3sf4?si=S9SlDe15fNWWbWYO${origin}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 };
 
 const isValidEmail = (value) => {

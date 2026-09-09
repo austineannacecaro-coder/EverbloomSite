@@ -371,6 +371,22 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
 
 .keyboard-keys .key-w {
   grid-column: 2;
+  grid-row: 1;
+}
+
+.keyboard-keys .key-a {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.keyboard-keys .key-s {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.keyboard-keys .key-d {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .keyboard-keys kbd {

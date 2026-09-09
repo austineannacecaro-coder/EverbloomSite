@@ -388,7 +388,7 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
   display: grid;
 }
 
-#loading-screen span::after {
+.loading-label::after {
   content: '';
   display: inline-block;
   width: 1.7em;
@@ -408,6 +408,7 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
     display: none;
   }
 }
+
 #mobile-controls {
   display: none;
   position: fixed;

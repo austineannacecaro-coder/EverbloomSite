@@ -362,10 +362,15 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
 }
 
 .keyboard-keys {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1.8em);
   gap: .35em;
   margin: 0 .35em;
   vertical-align: middle;
+}
+
+.keyboard-keys .key-w {
+  grid-column: 2;
 }
 
 .keyboard-keys kbd {
@@ -401,12 +406,6 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
   40% { content: '.'; }
   60% { content: '..'; }
   80%, 100% { content: '...'; }
-}
-
-@media (max-width: 768px) {
-  .loading-movement-hint {
-    display: none;
-  }
 }
 
 #mobile-controls {

@@ -504,6 +504,16 @@ const enterButton =
   document.getElementById('enter-button');
 const loadingScreen =
   document.getElementById('loading-screen');
+const profilePage =
+  document.getElementById('profile-page');
+const pauseMenu =
+  document.getElementById('pause-menu');
+const pauseButton =
+  document.getElementById('exit-button');
+const resumeGameButton =
+  document.getElementById('resume-game-button');
+const returnToProfileButton =
+  document.getElementById('return-to-profile-button');
 const siteAudio =
   document.getElementById('site-audio');
 const footstepSounds = [
@@ -551,15 +561,20 @@ let footstepIndex = 0;
 let footstepTimer = 0;
 let worldLoaded = false;
 let loadingRequested = false;
+let gameStarted = false;
 
 function hideLoadingScreen() {
   loadingScreen.classList.remove('visible');
   loadingRequested = false;
 }
 
-enterButton.addEventListener('click', (event) => {
+function startExperience(event) {
 
   event.stopPropagation();
+
+  gameStarted = true;
+  document.body.classList.remove('profile-active');
+  profilePage.style.display = 'none';
 
   introScreen.style.display = 'none';
   introScreen.style.pointerEvents = 'none';
@@ -577,11 +592,66 @@ enterButton.addEventListener('click', (event) => {
 
   lockDesktopControls();
 
-});
+}
+
+function resetMovementInput() {
+  keys.clear();
+  mobileMoveX = 0;
+  mobileMoveY = 0;
+  joystickTouchId = null;
+  joystickKnob.style.transform = 'translate(-50%, -50%)';
+}
+
+function openPauseMenu() {
+  if (!gameStarted || !pauseMenu.hidden) {
+    return;
+  }
+
+  resetMovementInput();
+  pauseMenu.hidden = false;
+  controls.unlock();
+  siteAudio.pause();
+  resumeGameButton.focus();
+}
+
+function resumeGame() {
+  pauseMenu.hidden = true;
+  siteAudio.play().catch((error) => {
+    console.warn('Unable to resume site audio:', error);
+  });
+  lockDesktopControls();
+}
+
+function returnToProfile() {
+  resetMovementInput();
+  pauseMenu.hidden = true;
+  gameStarted = false;
+  siteAudio.pause();
+  controls.unlock();
+  document.body.classList.add('profile-active');
+  profilePage.style.display = '';
+  window.scrollTo(0, 0);
+}
+
+pauseButton.addEventListener('click', openPauseMenu);
+resumeGameButton.addEventListener('click', resumeGame);
+returnToProfileButton.addEventListener('click', returnToProfile);
+
+enterButton.addEventListener('click', startExperience);
+document.addEventListener('everbloom:start-game', startExperience);
 
 
 // KEYBOARD
 window.addEventListener('keydown', (event) => {
+  if (event.code === 'Escape' && gameStarted) {
+    if (pauseMenu.hidden) {
+      openPauseMenu();
+    }
+
+    event.preventDefault();
+    return;
+  }
+
   if (
     [
       'KeyW',
@@ -758,6 +828,16 @@ const emailInput =
   document.getElementById('emailInput');
 
 let endingStarted = false;
+
+controls.addEventListener('unlock', () => {
+  if (
+    gameStarted &&
+    keypadScreen.style.display !== 'flex' &&
+    !endingStarted
+  ) {
+    openPauseMenu();
+  }
+});
 
 const getVideoEmbed = () => {
   const origin =

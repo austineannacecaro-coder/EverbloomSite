@@ -1,149 +1,221 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#101917" />
-    <title>the strings that bind.</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101917" />
+  <title>the strings that bind.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
 
-    <div id="atmosphere-filter" aria-hidden="true"></div>
+<body class="profile-active">
 
-    <!-- WRONG PIN FLASH -->
-    <div id="wrong-pin-flash"></div>
-    <audio id="site-audio" src="/everbloom-theme.mp3" loop preload="auto"></audio>
+  <div id="profile-page">
+    <header class="profile-nav">
+      <a class="profile-nav-brand" href="#home" aria-label="Everbloom home">
+        <img src="/animation_2.gif" alt="Everbloom" width="92" height="92">
+      </a>
+      <nav aria-label="Page sections">
+        <a href="#home">profile</a>
+        <a href="#music-video">video</a>
+      </nav>
+    </header>
+    <header class="profile-hero" aria-label="Everbloom">
+      <img src="/site-header.png" alt="Everbloom" fetchpriority="high">
+    </header>
 
-    <!-- ACCESS GRANTED ENDING -->
-    <div id="access-granted-flash" aria-hidden="true"></div>
-    <div id="pixel-transition" aria-hidden="true"></div>
+    <main id="home">
+      <section class="profile-stage" aria-labelledby="profile-title">
+        <aside class="profile-sidebar">
+          <div class="profile-name">EVERBLOOM</div>
+          <img class="album-art" src="/promo-profile.webp" alt="Everbloom band portrait">
+          <div class="status-box">
+            <span class="status-label">status</span>
+            <strong>online now</strong>
+          </div>
+          <div class="profile-details">
+            <span>post hardcore</span>
+            <span>rochester, ny</span>
+            <span>theoria records</span>
+          </div>
+        </aside>
 
-    <section id="ending-screen" aria-live="polite" aria-label="Everbloom ending">
-      <div class="ending-content">
-        <p id="ending-message"><span id="ending-text"></span><span class="ending-cursor" aria-hidden="true">_</span></p>
-        <div class="unlock-panel" id="unlockPanel" hidden>
-          <h2>UNLOCK THE SECRET</h2>
-          <p>Enter your email.</p>
-          <form id="emailForm">
-            <input
-              type="email"
-              id="emailInput"
-              name="email"
-              placeholder="Enter your email"
-              autocomplete="email"
-              inputmode="email"
-              maxlength="254"
-              required
-            >
-            <button type="submit">UNLOCK</button>
-          </form>
+        <div class="profile-main">
+          <p class="profile-eyebrow"></p>
+          <h1 id="profile-title">pulling at the strings that bind.</h1>
+          <p class="profile-intro">The debut EP from Rochester based post-hardcore band EVERBLOOM.</p>
+          <div class="profile-actions" aria-label="Everbloom destinations">
+            <button class="profile-play-button" id="play-game-button" type="button"
+              aria-label="Play the strings that bind game">
+              <img src="/cover-for-small.webp" alt="">
+              <span>play the strings that bind.</span>
+            </button>
+            <div class="profile-secondary-actions">
+              <a class="profile-listen-button"
+                href="https://everbloom.trffm.co/patstb?fbclid=IwY2xjawVDPIBleHRuA2FlbQIxMABwZG9mBWJyaWQRMXlwTHI2U2l6MEh6TEVMY1JzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeqrACkfkec7kSQaBSFNhSdlt07W3FuDp21Y2X2mhLHgQsabosYGpLEoaWe6M_aem_I6JFitZx6XWdVJvQ6bTLlQ"
+                target="_blank" rel="noopener noreferrer">Listen now</a>
+              <a class="profile-video-button" href="#music-video">Watch the video</a>
+              <a class="profile-store-button" href="https://www.theoriarecords.com/collections/everbloom"
+                target="_blank" rel="noopener noreferrer">Shop</a>
+            </div>
+          </div>
+          <article class="profile-blurb">
+            <h2>the strings that bind</h2>
+            <p>the strings that bind is an interactive search and find game developed by everbloom bringing player
+              into the album art of their upcoming EP pulling at the strings that bind.
+            </p>
+
+
+          </article>
         </div>
-        <div id="ending-video" hidden>
+      </section>
+
+      <section class="profile-video" id="music-video" aria-labelledby="music-video-title">
+        <p class="profile-eyebrow">music video</p>
+        <h2 id="music-video-title">pulling at the strings that bind.</h2>
+        <div class="profile-video-frame">
+          <iframe src="https://www.youtube.com/embed/pbXEIe7SG0M" title="Everbloom music video" loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-      </div>
-    </section>
-
-    <!-- INTRO -->
-    <div id="intro-screen">
-
-      <img
-        id="intro-gif"
-        src="/animation_2.gif"
-        alt="Everbloom"
-      >
-
-      <button id="enter-button">Enter?</button>
-
-    </div>
-
-    <div id="loading-screen" aria-live="polite" aria-label="Loading">
-      <div class="loading-content">
-        <span class="loading-label">LOADING</span>
-        <p class="loading-movement-hint">
-          <span>USE</span>
-          <span class="keyboard-keys" aria-label="W A S D keys">
-            <kbd class="key-w">W</kbd>
-            <kbd class="key-a">A</kbd><kbd class="key-s">S</kbd><kbd class="key-d">D</kbd>
-          </span>
-          <span>TO MOVE</span>
-        </p>
-      </div>
-    </div>
-
-    <!-- KEYPAD -->
-    <div id="keypad-screen">
-
-      <div id="keypad-panel">
-
-        <h2>ENTER CODE</h2>
-
-        <div id="keypad-display"></div>
-
-        <div id="keypad-buttons">
-
-          <button data-key="1">1</button>
-          <button data-key="2">2</button>
-          <button data-key="3">3</button>
-
-          <button data-key="4">4</button>
-          <button data-key="5">5</button>
-          <button data-key="6">6</button>
-
-          <button data-key="7">7</button>
-          <button data-key="8">8</button>
-          <button data-key="9">9</button>
-
-          <button data-key="backspace">←</button>
-          <button data-key="0">0</button>
-          <button data-key="enter">#</button>
-
-        </div>
-
-        <div id="keypad-message"></div>
-
-        <button id="keypad-back">BACK</button>
-
-      </div>
-
-    </div>
-
-    <!-- PHOTO DISPLAYS -->
-    <div id="photo-number"></div>
-    <div id="photo-phrase"></div>
-
-    <!-- 3D WORLD -->
-    <main
-      id="experience"
-      aria-label="Everbloom 3D exploration"
-    >
-
-      <div id="hud">
-
-        <img class="brand-mark" src="/animation_2.gif" alt="Everbloom">
-
-        <div class="crosshair"></div>
-
-      </div>
-
-      <!-- MOBILE CONTROLS -->
-      <div id="mobile-controls">
-
-        <div id="joystick">
-          <div id="joystick-knob"></div>
-        </div>
-
-        <div id="look-area"></div>
-
-      </div>
-
+      </section>
     </main>
+  </div>
 
-    <script
-      type="module"
-      src="./script.js"
-    ></script>
+  <div id="atmosphere-filter" aria-hidden="true"></div>
 
-  </body>
+  <!-- WRONG PIN FLASH -->
+  <div id="wrong-pin-flash"></div>
+  <audio id="site-audio" src="/everbloom-theme.mp3" loop preload="auto"></audio>
+
+  <!-- ACCESS GRANTED ENDING -->
+  <div id="access-granted-flash" aria-hidden="true"></div>
+  <div id="pixel-transition" aria-hidden="true"></div>
+
+  <section id="ending-screen" aria-live="polite" aria-label="Everbloom ending">
+    <div class="ending-content">
+      <p id="ending-message"><span id="ending-text"></span><span class="ending-cursor" aria-hidden="true">_</span></p>
+      <div class="unlock-panel" id="unlockPanel" hidden>
+        <h2>UNLOCK THE SECRET</h2>
+        <p>Enter your email.</p>
+        <form id="emailForm">
+          <input type="email" id="emailInput" name="email" placeholder="Enter your email" autocomplete="email"
+            inputmode="email" maxlength="254" required>
+          <button type="submit">UNLOCK</button>
+        </form>
+      </div>
+      <div id="ending-video" hidden>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <div id="intro-screen">
+
+    <img id="intro-gif" src="/animation_2.gif" alt="Everbloom">
+
+    <button id="enter-button">Enter?</button>
+
+  </div>
+
+  <div id="loading-screen" aria-live="polite" aria-label="Loading">
+    <div class="loading-content">
+      <span class="loading-label">LOADING</span>
+      <p class="loading-movement-hint">
+        <span>USE</span>
+        <span class="keyboard-keys" aria-label="W A S D keys">
+          <kbd class="key-w">W</kbd>
+          <kbd class="key-a">A</kbd><kbd class="key-s">S</kbd><kbd class="key-d">D</kbd>
+        </span>
+        <span>TO MOVE</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- KEYPAD -->
+  <div id="keypad-screen">
+
+    <div id="keypad-panel">
+
+      <h2>ENTER CODE</h2>
+
+      <div id="keypad-display"></div>
+
+      <div id="keypad-buttons">
+
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+
+        <button data-key="backspace">←</button>
+        <button data-key="0">0</button>
+        <button data-key="enter">#</button>
+
+      </div>
+
+      <div id="keypad-message"></div>
+
+      <button id="keypad-back">BACK</button>
+
+    </div>
+
+  </div>
+
+  <!-- PHOTO DISPLAYS -->
+  <div id="photo-number"></div>
+  <div id="photo-phrase"></div>
+
+  <!-- 3D WORLD -->
+  <main id="experience" aria-label="Everbloom 3D exploration">
+
+    <div id="hud">
+
+      <img class="brand-mark" src="/animation_2.gif" alt="Everbloom">
+
+      <div class="crosshair"></div>
+
+    </div>
+
+    <!-- MOBILE CONTROLS -->
+    <div id="mobile-controls">
+
+      <div id="joystick">
+        <div id="joystick-knob"></div>
+      </div>
+
+      <div id="look-area"></div>
+
+    </div>
+
+  </main>
+
+  <button id="exit-button" type="button" aria-label="Open pause menu">PAUSE <span>Ⅱ</span></button>
+
+  <section id="pause-menu" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
+    <div class="pause-panel">
+      <h2 id="pause-title">the strings that bind</h2>
+      <p class="pause-eyebrow">game paused</p>
+      <div class="pause-actions">
+        <button id="resume-game-button" type="button">Resume</button>
+        <button id="return-to-profile-button" type="button">Back to main site</button>
+      </div>
+      <p class="pause-controls-hint">Press ESC to pause</p>
+    </div>
+  </section>
+
+  <script type="module" src="./script.js"></script>
+  <script src="profile.js"></script>
+
+</body>
+
 </html>

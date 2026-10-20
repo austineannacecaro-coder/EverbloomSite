@@ -12,7 +12,7 @@ body.profile-active::after {
   opacity: .8;
   pointer-events: none;
   background-image: url("/film-grain.svg");
-  background-size: clamp(48px, 12.5vw, 360px);
+  background-size: 12.5vw 12.5vw;
   filter: contrast(1.7) brightness(1.12);
   mix-blend-mode: overlay;
   animation: site-grain-shift .28s steps(2, end) infinite;

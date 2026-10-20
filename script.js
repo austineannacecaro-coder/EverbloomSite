@@ -609,7 +609,7 @@ function openPauseMenu() {
 
   resetMovementInput();
   pauseMenu.hidden = false;
-  controls.unlock();
+  unlockPointerControls();
   siteAudio.pause();
   resumeGameButton.focus();
 }
@@ -627,7 +627,7 @@ function returnToProfile() {
   pauseMenu.hidden = true;
   gameStarted = false;
   siteAudio.pause();
-  controls.unlock();
+  unlockPointerControls();
   document.body.classList.add('profile-active');
   profilePage.style.display = '';
   window.scrollTo(0, 0);

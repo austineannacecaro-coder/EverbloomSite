@@ -18,13 +18,6 @@ body.profile-active::after {
   animation: site-grain-shift .28s steps(2, end) infinite;
 }
 
-@media (max-width: 760px) {
-  body.profile-active::after {
-    background-image: url("/film-grain-mobile.svg");
-    background-size: 180px 180px;
-  }
-}
-
 @keyframes site-grain-shift {
   0% { transform: translate(0, 0); }
   25% { transform: translate(.5%, -.5%); }

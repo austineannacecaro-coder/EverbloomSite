@@ -15,14 +15,14 @@ body.profile-active::after {
   background-size: 180px 180px;
   filter: contrast(1.7) brightness(1.12);
   mix-blend-mode: overlay;
-  animation: site-grain-shift .28s steps(2, end) infinite;
+  animation: site-grain-static .16s steps(4, end) infinite;
 }
 
-@keyframes site-grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(.5%, -.5%); }
-  50% { transform: translate(-.5%, .5%); }
-  75% { transform: translate(.5%, .5%); }
+@keyframes site-grain-static {
+  0% { background-position: 0 0; }
+  25% { background-position: -1px 1px; }
+  50% { background-position: 1px -1px; }
+  75% { background-position: 1px 1px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

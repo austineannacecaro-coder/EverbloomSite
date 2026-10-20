@@ -74,7 +74,7 @@ button { margin-top: 12px; padding: 14px 21px; border: 1px solid #c9d592; border
 button:hover { transform: translateY(-2px); background: #e1e8b7; }
 #hud { position: fixed; z-index: 1; inset: 0; pointer-events: none; transition: opacity .25s; }
 .brand-mark { position: absolute; top: 24px; left: 28px; width: 92px; height: auto; }
-#exit-button { position: fixed; z-index: 5001; top: 13px; right: 18px; margin: 0; padding: 10px 13px; border-color: rgba(255,255,255,.35); background: rgba(15, 25, 20, .75); color: #fff; pointer-events: auto; touch-action: manipulation; font-size: .68rem; }
+#exit-button { position: fixed; z-index: 30005; top: 13px; right: 18px; margin: 0; padding: 10px 13px; border-color: rgba(255,255,255,.35); background: rgba(15, 25, 20, .75); color: #fff; pointer-events: auto; touch-action: manipulation; font-size: .68rem; }
 #exit-button span { color: #c9d592; }
 .crosshair, .crosshair::after { position: absolute; top: 50%; left: 50%; width: 11px; height: 1px; background: rgba(255,255,255,.78); content: ""; transform: translate(-50%, -50%); }
 .crosshair::after { transform: translate(-50%, -50%) rotate(90deg); }
@@ -84,7 +84,7 @@ button:hover { transform: translateY(-2px); background: #e1e8b7; }
 #pause-menu {
   position: fixed;
   inset: 0;
-  z-index: 30004;
+  z-index: 30006;
   display: grid;
   place-items: center;
   padding: 22px;

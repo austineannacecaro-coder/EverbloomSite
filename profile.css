@@ -204,6 +204,28 @@ body.profile-active {
   line-height: 1.6;
 }
 
+.profile-quote {
+  max-width: 760px;
+  margin: 28px auto;
+  color: var(--profile-light);
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.profile-quote p {
+  margin: 0 0 16px;
+}
+
+.profile-quote cite {
+  color: var(--profile-mid);
+  font-size: .85rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
 .profile-actions {
   margin: 24px 0;
   display: flex;
